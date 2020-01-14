@@ -32,7 +32,7 @@ module MysqlOnlineMigrations
 
     if adapter_mode
       @no_lock_adapter
-    if makara_mode
+    elsif makara_mode
       master_pool = original_connection.instance_variable_get(:@master_pool)
       master_pool.instance_variable_set(:@connections, [@no_lock_adapter])
       original_connection.instance_variable_set(:@master_pool, master_pool)
