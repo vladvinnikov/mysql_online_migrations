@@ -12,6 +12,7 @@ module ActiveRecord
           mysql2_adapter.instance_variable_get(sym)
         end
         super(*params)
+        self.pool = mysql2_adapter.pool
       end
 
       alias_method :original_execute, :execute
